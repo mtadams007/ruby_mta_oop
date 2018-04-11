@@ -19,7 +19,7 @@ end
 
 def check_transfer(line1, line2)
   if line2.transfer_stations.has_key? line1.name
-    puts "Success"
+    line2.transfer_stations[line1.name]
   else
     puts "Failure :("
   end
@@ -36,15 +36,13 @@ def calculate(line1,start,line2,stop)
   if line1 == line2
     return mini_calc(start,stop,line1)
   else
-    return mini_calc(start, "union_square", line1) + mini_calc("union_square", stop, line2)
+    return mini_calc(start, check_transfer(line1,line2), line1)+mini_calc(check_transfer(line1,line2),stop,line2)
+
   end
 end
 
 
 
 
-# N = Line.new(['Times Square', '34th', '28th', '23rd', 'Union Square', '8th'], "N")
-#
-# L = Line.new(["8th", "6th", "Union Square", "3rd", "1st"], "L")
-# p N.stops
-# p N
+# else
+#   return mini_calc(start, "union_square", line1) + mini_calc("union_square", stop, line2)

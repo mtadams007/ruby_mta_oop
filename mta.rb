@@ -55,5 +55,5 @@ else
   puts "Please input a proper command"
 end
 
-check_transfer(Q,N)
-check_transfer(N,F)
+puts check_transfer(Q,N)
+puts check_transfer(N,F)
