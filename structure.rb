@@ -22,14 +22,12 @@ def calculate(line1,start,line2,stop)
   if line1 == line2
     return mini_calc(start,stop,line1)
   else
-    return mini_calc(start, "Union Square", line1) + mini_calc("Union Square", stop, line2)
+    return mini_calc(start, "union_square", line1) + mini_calc("union_square", stop, line2)
   end
 end
 
-N = Line.new(['Times Square', '34th', '28th', '23rd', 'Union Square', '8th'], "N")
-
-L = Line.new(["8th", "6th", "Union Square", "3rd", "1st"], "L")
+# N = Line.new(['Times Square', '34th', '28th', '23rd', 'Union Square', '8th'], "N")
+#
+# L = Line.new(["8th", "6th", "Union Square", "3rd", "1st"], "L")
 # p N.stops
 # p N
-puts calculate(N,'23rd', N, "Times Square")
-puts calculate(L, '1st', N, "34th")
