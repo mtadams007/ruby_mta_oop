@@ -1,7 +1,28 @@
 require_relative "structure.rb"
 
+# Variables
+
+Q = Line.new(["times_square", "herald_square", "union_square", "canal_st"],'Q')
+
+N = Line.new(['times_square', '34th', '28th', '23rd', 'union_square', '8th'], "N")
+L = Line.new(["8th", "6th", "union_square", "3rd", "1st"], "L")
+F = Line.new(["rockefeller_center", "42nd", "herald_square", "23rd", "14th", "West 4th"], "F")
+six = Line.new(["grand_central", "33rd", "28th", "23rd", "union_square", "astor_place"], '6')
+
+q_transfer = {L.name=>"union_square",N.name=>"union_square",six.name=>"union_square", F.name=>"herald_square"}
+n_transfer = {L.name=>"union_square",Q.name=>"union_square",six.name =>"union_square"}
+l_transfer = {N.name => "union_square",Q.name=>"union_square",six.name=>"union_square"}
+f_transfer = {Q.name=>"herald_square"}
+six_transfer = {L.name=>"union_square",N.name=>"union_square",Q.name=>"union_square"}
+
+Q.add_transfer(q_transfer)
+N.add_transfer(n_transfer)
+L.add_transfer(l_transfer)
+F.add_transfer(f_transfer)
+six.add_transfer(six_transfer)
+
 lines = ['F','N','L','Q','6']
-lines_hash = {'N' => $N, 'L'=> $L, "6" => $six, "F" => $F, "Q"=>$Q}
+lines_hash = {'N' => N, 'L'=> L, "6" => six, "F" => F, "Q"=>Q}
 
 input = ARGV
 length = input.length
@@ -33,3 +54,6 @@ elsif length == 5
 else
   puts "Please input a proper command"
 end
+
+check_transfer(Q,N)
+check_transfer(N,F)
