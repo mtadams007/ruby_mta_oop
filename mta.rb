@@ -1,15 +1,8 @@
 require_relative "structure.rb"
 
-# Variables
+lines = ['F','N','L','Q','6']
+lines_hash = {'N' => $N, 'L'=> $L, "6" => $six, "F" => $F, "Q"=>$Q}
 
-N = Line.new(['times_square', '34th', '28th', '23rd', 'union_square', '8th'], "N")
-L = Line.new(["8th", "6th", "union_square", "3rd", "1st"], "L")
-Q = Line.new(["times_square", "herald_square", "union_square", "canal_st"],'Q')
-F = Line.new(["rockefeller_center", "42nd", "herald_square", "23rd", "14th", "West 4th"], "F")
-six = Line.new(["grand_central", "33rd", "28th", "23rd", "union_square", "astor_place"], '6')
-
-lines = ['F''N','L','Q','6']
-lines_hash = {'N' => N, 'L'=> L, "6" => six, "F" => F, "Q"=>Q}
 input = ARGV
 length = input.length
 
