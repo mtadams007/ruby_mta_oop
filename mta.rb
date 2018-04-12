@@ -44,8 +44,18 @@ elsif length == 2
     puts "I'm sorry there is a sick passenger at Dekalb Avenue"
   end
 elsif length == 5
-  if input[0] == "calculate" && lines.include?(input[1]) && lines.include?(input[3])
+  if input[0] == "calculate" && lines.include?(input[1]) && lines.include?(input[3]) && check_transfer(lines_hash[input[1]],lines_hash[input[3]])
     puts calculate(lines_hash[input[1]],input[2], lines_hash[input[3]], input[4])
+    #checking best two transfers
+  elsif input[0] == "calculate" && lines.include?(input[1]) && lines.include?(input[3])
+    transfers = multiple_transfers(lines_hash[input[1]],lines_hash[input[3]],lines)
+    if transfers.length == 1
+      # puts lines_hash[transfers[0]]
+      line_1 = lines_hash[input[1]]
+      line_2 = lines_hash[input[3]]
+      line_3 = lines_hash[transfers[0]]
+      puts transferring_thrice(line_1,line_2,line_3, input[2],check_transfer(line_1,line_3),check_transfer(line_3,line_2),input[4])
+    end
   elsif input[0] == "calculate"
     puts "Please input existing lines"
   else
@@ -55,5 +65,5 @@ else
   puts "Please input a proper command"
 end
 
-puts check_transfer(Q,N)
-puts check_transfer(N,F)
+transferring_thrice(F,six,Q,'42nd',  'herald_square', 'union_square', 'astor_place')
+# puts multiple_transfers(six,F)
